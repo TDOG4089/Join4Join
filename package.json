@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
+    "type": "git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "ISC"
   },
   "dependencies": {
     "@discordjs/builders": "^0.12.0",
