@@ -6,7 +6,7 @@ const client = new Client({ intents: 32767 })
 
 client.commands = new Collection();
 
-// Commands
+// Commands Handler
 const commandFiles = fs.readdirSync('./Commands')
   .filter(file => file.endsWith('.js'));
 
@@ -15,7 +15,7 @@ const command = require(`./Commands/${file}`);
 client.commands.set(command.data.name, command);
 }
 
-// Events
+// Events Handler
 const eventFiles = fs.readdirSync('./Events')
   .filter(file => file.endsWith('.js'));
 
