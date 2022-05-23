@@ -4,7 +4,6 @@ const { get } = require('../Schemas/sqlite.js');
 const db = require('quick.db');
 const config = require('../Database/config.json');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('add-coins')
