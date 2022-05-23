@@ -21,7 +21,7 @@ module.exports = {
         data.users.push(member.user.id)
         db.set(`users_${member.guild.id}`, data.users)
         db.set(`logs_${member.user.id}`, data.logs)
-        db.add(`coins_${member.user.id}`, 0.70)
+        db.add(`coins_${member.user.id}`, 1)
         db.set(`joinedDate_${member.guild.id}_${member.user.id}`, Date.now())
         data.record.push(member.user.id)
         db.set(`record_${member.guild.id}`, data.record)
