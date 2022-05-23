@@ -44,7 +44,7 @@ module.exports = {
             .setColor(config.color)
 
         user.send({ embeds: [userEmbed] }).catch(err => {
-            interaction.editReply({ content: 'The user was **not** notified!', ephemeral: true });
+            interaction.editReply({ content: 'The user was **not** notified!' });
         })
     },
 };
