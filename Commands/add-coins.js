@@ -20,7 +20,7 @@ module.exports = {
     ownerOnly: true,
     async execute(interaction) {
 
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply();
 
         data = await get(interaction, interaction.user)
 
@@ -44,7 +44,7 @@ module.exports = {
             .setColor(config.color)
 
         user.send({ embeds: [userEmbed] }).catch(err => {
-            interaction.editReply({ content: 'The user was **not** notified!', ephemeral: true });
+            interaction.editReply({ content: 'The user was **not** notified!' });
         })
     },
 };
