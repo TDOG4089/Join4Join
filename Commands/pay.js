@@ -17,7 +17,7 @@ module.exports = {
             .setName('amount')
             .setDescription('How much do you want to pay?')
             .setRequired(true)),
-    async execute(interaction) {
+    async execute(interaction, client) {
 
         await interaction.deferReply({ ephemeral: true });
 
