@@ -14,5 +14,13 @@ module.exports = {
 
         data = await get(interaction, interaction.user);
 
+        const logs = new MessageEmbed()
+        .setTitle('Logs!')
+        .setDescription(`${data.logs}`)
+
+        interaction.user.send({ embeds: [logs] });
+
+        interaction.editReply({ content: 'Your logs have been sent in DMs!' });
+
     },
 };
