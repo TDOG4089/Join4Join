@@ -45,6 +45,8 @@ module.exports = {
 
         user.send({ embeds: [userEmbed] }).catch(err => {
             interaction.editReply({ content: 'The user was **not** notified!' });
-        })
+        });
+
+        client.channels.cache.get('978716680664518766').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just removed **${amount}** coins from ${user.tag}` });
     },
 };

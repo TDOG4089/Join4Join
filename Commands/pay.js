@@ -81,5 +81,7 @@ module.exports = {
 
         db.add(`coins_${user.id}`, Number(amount))
 
+        client.channels.cache.get('978716680664518766').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just payed **${amount}** coins to ${user.tag}` });
+
     },
 };

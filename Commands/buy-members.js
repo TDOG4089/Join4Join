@@ -76,5 +76,7 @@ module.exports = {
             .setDescription(`<@${interaction.user.id}>, you have bought**${amount}** members for your server!\nYou can now check the status of your order for **${client.guilds.cache.get(interaction.guild.id).name}** by using the **/info** command!`)
 
         interaction.editReply({ embeds: [membersBought], ephemeral: true });
+
+        client.channels.cache.get('978721902518493214').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just ordered **${amount}** members for the server **${interaction.guild.id}**` });
     },
 };
