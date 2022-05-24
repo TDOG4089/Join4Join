@@ -11,7 +11,7 @@ module.exports = {
         if (!command) return;
 
         if (command['ownerOnly'] == true) {
-            if (interaction.user.id != `${config.ownerID}`) {
+            if (interaction.user.id != `${config.ownerID[1]}`) {
                 interaction.reply({ content: 'Sorry, only the bot owners can run this command.', ephemeral: true });
                 return;
             }
