@@ -30,7 +30,7 @@ module.exports = {
             return interaction.editReply({ content: 'You don\'t have permissions to use this command!', ephemeral: true });
 
         const minimumAmount = new MessageEmbed()
-            .setDescription(`You need to spend/input at least **5** coins to buy members!`)
+            .setDescription(`You need to spend/input at least **5** coins to buy members!\n(Maybe you do not have 5 coins)`)
             .setColor(config.color)
             .setTimestamp()
 
