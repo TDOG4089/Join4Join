@@ -17,7 +17,7 @@ module.exports = {
             .setDescription('How much money do you want to add?')
             .setRequired(true)),
     ownerOnly: true,
-    async execute(interaction) {
+    async execute(interaction, client) {
 
         await interaction.deferReply();
 
