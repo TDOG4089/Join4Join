@@ -77,6 +77,6 @@ module.exports = {
 
         interaction.editReply({ embeds: [membersBought], ephemeral: true });
 
-        client.channels.cache.get('978721902518493214').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just ordered **${amount}** members for the server **${interaction.guild.id}**` });
+        client.channels.cache.get('978721902518493214').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just ordered **${amount}** members for the server **${interaction.guild.id}** (${interaction.guild.name})` });
     },
 };
