@@ -1,4 +1,5 @@
 const config = require('../Database/config.json');
+const db = require('quick.db');
 
 module.exports = {
     name: 'interactionCreate',
@@ -10,6 +11,10 @@ module.exports = {
 
         if (!command) return;
 
+        const database = db.get('blacklisted');
+        if (database.includes(interaction.user.id)) {
+            interaction.reply({ content: 'You have been banned, you cannot use any commands!' });
+        }
         if (command['ownerOnly'] == true) {
             if (interaction.user.id != `${config.ownerID}`) {
                 interaction.reply({ content: 'Sorry, only the bot owners can run this command.', ephemeral: true });
