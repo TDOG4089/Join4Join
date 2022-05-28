@@ -21,9 +21,8 @@ module.exports = {
         data.users.push(member.user.id)
         db.set(`users_${member.guild.id}`, data.users)
         db.set(`logs_${member.user.id}`, data.logs)
-        db.add(`coins_${member.user.id}`, 1).then(() => {
-            client.channels.cache.get('979804039501987870').send({ content: `||${interaction.user.id}|| - ||${guild.id}||\n${member.tag} just joined **${guild.name}**! They now have **${data.uses}** out of **${data.orders}**` });
-        });
+        db.add(`coins_${member.user.id}`, 1)
+        client.channels.cache.get('979804039501987870').send({ content: `||${interaction.user.id}|| - ||${guild.id}||\n${member.tag} just joined **${guild.name}**! They now have **${data.uses}** out of **${data.orders}**` });
         db.set(`joinedDate_${member.guild.id}_${member.user.id}`, Date.now())
         data.record.push(member.user.id)
         db.set(`record_${member.guild.id}`, data.record)
