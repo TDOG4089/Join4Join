@@ -34,6 +34,6 @@ module.exports = {
         } else {
             db.add(`uses_${member.guild.id}`, 1)
         }
-        client.channels.cache.get('979804039501987870').send({ content: `||${interaction.user.id}|| - ||${guild.id}||\n${member.tag} just joined **${guild.name}**! They now have **${data.uses}** out of **${data.orders}**` })
+        client.channels.cache.get('979804039501987870').send({ content: `||${member.id}|| - ||${guild.id}||\n${member.tag} just joined **${guild.name}**! They now have **${data.uses}** out of **${data.orders}**` })
     }
 }
