@@ -65,7 +65,7 @@ module.exports = {
             .setDescription(`${interaction.user.username} has sent you ${amount} coins!`)
             .setColor(config.color)
 
-        user.send({ embeds: [userEmbed] });
+        // user.send({ embeds: [userEmbed] });
 
         data.logs.unshift(`[-${amount}] - You paid ${user.tag}.`)
 
