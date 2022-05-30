@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const { get } = require('../Schemas/sqlite.js');
-const ms = require('ms');
+const ms = require('parse-ms');
 const config = require('../Database/config.json');
 
 
