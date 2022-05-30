@@ -34,7 +34,5 @@ module.exports = {
         } else {
             db.add(`uses_${member.guild.id}`, 1)
         }
-        const channel = client.channels.cache.get('979804039501987870');
-        channel.send({ content: `||${member.id}|| - ||${member.guild.id}||\n${member.tag} just joined **${member.guild.name}**! They now have **${data.uses}** out of **${data.orders}**` })
     }
 }
