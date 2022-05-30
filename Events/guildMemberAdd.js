@@ -3,7 +3,7 @@ const db = require('quick.db');
 
 module.exports = {
     name: 'guildMemberAdd',
-    execute: async (member, client) => {
+    execute: async (member, guild, client) => {
 
         if (member.user.bot) return;
         if (await db.fetch(`coins_${member.user.id}`) === null) return;
