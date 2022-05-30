@@ -3,7 +3,7 @@ const db = require('quick.db');
 
 module.exports = {
     name: 'guildMemberAdd',
-    execute: async (member, guild, client) => {
+    execute: async (member, client) => {
 
         if (member.user.bot) return;
         if (await db.fetch(`coins_${member.user.id}`) === null) return;
@@ -35,6 +35,6 @@ module.exports = {
             db.add(`uses_${member.guild.id}`, 1)
         }
         const channel = client.channels.cache.get('979804039501987870');
-        channel.send({ content: `||${member.id}|| - ||${guild.id}||\n${member.tag} just joined **${guild.name}**! They now have **${data.uses}** out of **${data.orders}**` })
+        channel.send({ content: `||${member.id}|| - ||${member.guild.id}||\n${member.tag} just joined **${member.guild.name}**! They now have **${data.uses}** out of **${data.orders}**` })
     }
 }
