@@ -10,7 +10,7 @@ module.exports = {
         console.log(`Ready! Logged in as ${client.user.tag} on Node ${process.version}`);
         console.log(`Inside ${client.guilds.cache.size} servers!`);
         console.log(`Handling ${client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!`);
-        client.user.setActivity('you!', { type: 'WATCHING' });
+        client.user.setActivity('discord.gg/joinplus', { type: 'WATCHING' });
 
         const commands = [];
         const commandFiles = fs.readdirSync('./Commands')
