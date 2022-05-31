@@ -35,6 +35,6 @@ module.exports = {
             db.add(`uses_${member.guild.id}`, 1)
         }
         const channel = member.client.channels.cache.get('979804039501987870');
-        channel.send({ content: `||${member.id}|| - ||${member.guild.id}||\n${member} just earned 1 by farming in ${member.guild.name}. Server stats - ${data.uses}/${data.orders}` });
+        channel.send({ content: `||${member.id}|| - ||${member.guild.id}||\n${member.user.tag} just earned 1 by farming in ${member.guild.name}. Server stats - ${data.uses}/${data.orders}` });
     }
 }
