@@ -48,13 +48,13 @@ module.exports = {
             link = link.code;
         }
 
-        /* await client.fetchInvite('https://discord.gg/' + link).catch(async x => {
+        await client.fetchInvite('https://discord.gg/' + link).catch(async x => {
             link = await interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
             console.log(link);
         });
 
-        await new Promise(resolve => setTimeout(resolve, 100));
+        /* await new Promise(resolve => setTimeout(resolve, 100));
 
         db.set(`code_${interaction.guild.id}`, link)
         db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`)
