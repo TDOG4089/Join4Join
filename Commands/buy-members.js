@@ -26,7 +26,7 @@ module.exports = {
         const amount = interaction.options.getInteger('amount');
         const description = interaction.options.getString('description');
 
-        /* if (!interaction.member.permissions.has('ADMINISTRATOR'))
+        if (!interaction.member.permissions.has('ADMINISTRATOR'))
             return interaction.reply({ content: 'You don\'t have permissions to use this command!' });
 
         const minimumAmount = new MessageEmbed()
@@ -41,7 +41,7 @@ module.exports = {
         if (amount > data.coins)
             return interaction.reply({ embeds: [minimumAmount] });
 
-        let link = data.code;
+        /* let link = data.code;
 
         if (link == 0) {
             link = await interaction.channel.createInvite({ maxAge: 604800 });
