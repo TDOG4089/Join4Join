@@ -45,7 +45,6 @@ module.exports = {
 
         if (link == 0) {
             link = await interaction.channel.createInvite({ maxAge: 604800 });
-
             link = link.code;
         }
 
@@ -55,8 +54,7 @@ module.exports = {
             console.log(link);
         });
 
-
-        await new Promise(resolve => setTimeout(resolve, 100));
+        //await new Promise(resolve => setTimeout(resolve, 100));
 
         db.set(`code_${interaction.guild.id}`, link);
         db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`);

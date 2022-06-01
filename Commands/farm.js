@@ -3,7 +3,6 @@ const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');
 const config = require('../Database/config.json');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('farm')
