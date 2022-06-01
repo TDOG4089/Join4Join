@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = new mongooose.Schema({
+const Schema = new mongoose.Schema({
     id: String
 });
 
