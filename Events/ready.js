@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const mongoose = require('moongoose');
+const mongoose = require('mongoose');
 const config = require('../Database/config.json');
 
 module.exports = {
