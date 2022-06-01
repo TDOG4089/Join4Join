@@ -33,12 +33,12 @@ module.exports = {
 
                 let code = await db.fetch(`code_${id}`)
 
-                await client.fetchInvite("https://discord.gg/" + code).then(link => {
+                /*await client.fetchInvite("https://discord.gg/" + code).then(link => {
                     console.log(link.code)
                     if (link.code === null) handler = false
                 }).catch(error => {
                     handler = false
-                })
+                }) */
 
                 await new Promise(resolve => setTimeout(resolve, 0))
 
