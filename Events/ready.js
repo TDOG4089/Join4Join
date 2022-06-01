@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+const mongoose = require('moongoose');
 const config = require('../Database/config.json');
 
 module.exports = {
@@ -24,10 +25,19 @@ module.exports = {
 
         const rest = new REST({ version: '9' }).setToken(config.token);
 
-        // Guild Commands
+        // Global Commands
         rest.put(Routes.applicationCommands(config.clientID),
             { body: commands })
             .then(() => console.log('Successfully registered global application commands.'))
             .catch(console.error);
+
+        mongoose.connect(config.MongoURL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }).then(() => {
+            console.log('Connected to the database!');
+        }).catch((err) => {
+            console.log(err);
+        });
     }
 };
