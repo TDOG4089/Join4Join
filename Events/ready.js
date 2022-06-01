@@ -31,7 +31,7 @@ module.exports = {
             .then(() => console.log('Successfully registered global application commands.'))
             .catch(console.error);
 
-        mongoose.connect(config.MongoURL, {
+        mongoose.connect(config.mongoURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(() => {
