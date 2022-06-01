@@ -21,12 +21,12 @@ module.exports = {
 
         //await interaction.deferReply();
 
-        /* data = await get(interaction, interaction.user)
+        data = await get(interaction, interaction.user)
 
         const amount = interaction.options.getInteger('amount');
         const description = interaction.options.getString('description');
 
-        if (!interaction.member.permissions.has('ADMINISTRATOR'))
+        /* if (!interaction.member.permissions.has('ADMINISTRATOR'))
             return interaction.reply({ content: 'You don\'t have permissions to use this command!' });
 
         const minimumAmount = new MessageEmbed()
