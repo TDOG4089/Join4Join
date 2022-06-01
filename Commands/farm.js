@@ -31,7 +31,7 @@ module.exports = {
 
                 let guild = client.guilds.cache.get(orders[i].ID.split("_")[1]).name
 
-                let code = await db.fetch(`code_${id}`)
+                let code = await db.get(`code_${id}`)
 
                 /*await client.fetchInvite("https://discord.gg/" + code).then(link => {
                     console.log(link.code)
@@ -43,7 +43,7 @@ module.exports = {
                 await new Promise(resolve => setTimeout(resolve, 0))
 
                 if (handler) {
-                    let description = await db.fetch(`description_${id}`)
+                    let description = await db.get(`description_${id}`)
 
                     const invites = new MessageEmbed()
                         .setTitle('Invite link!')
