@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const { get } = require('../Schemas/sqlite.js');
 const db = require('quick.db');
+const blacklist = require('../Schemas/blacklist.js');
 const config = require('../Database/config.json');
 
 
@@ -16,10 +17,21 @@ module.exports = {
     ownerOnly: true,
     async execute(interaction) {
 
-        await interaction.deferReply();
+        await interaction.deferReply({ ephemeral: true });
 
         const user = interaction.options.getUser('user');
 
-        interaction.editReply({ content: `${user} has been blacklisted!` });
+        blacklist.findOne({ id: user.id }, async (err, data) => {
+            if (err) throw err;
+            if (data) {
+                interaction.editReply({ content: `${user} has already been blacklisted!`, ephemeral: true });
+            } else {
+                data = new blacklist({ id: user.id })
+            }
+            data.save().catch(err => {
+                interaction.editReply({ content: `An error occured!`, ephemeral: true });
+            })
+            interaction.editReply({ content: `${user} has succesfully been blacklisted!`, ephemeral: true });
+        })
     },
 };
