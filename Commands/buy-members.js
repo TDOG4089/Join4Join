@@ -54,7 +54,7 @@ module.exports = {
             console.log(link);
         });
 
-        //await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 100));
 
         db.set(`code_${interaction.guild.id}`, link)
         db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`)
@@ -64,7 +64,7 @@ module.exports = {
         const membersBought = new MessageEmbed()
             .setTitle(`Order successfully completed`)
             .setColor(config.color)
-            .setDescription(`<@${interaction.user.id}>, you have bought**${amount}** members for your server!\nYou can now check the status of your order for **${client.guilds.cache.get(interaction.guild.id).name}** by using the **/info** command!`)
+            .setDescription(`<@${interaction.user.id}>, you have bought **${amount}** members for your server!\nYou can now check the status of your order for **${interaction.guild.name}** by using the **/info** command!`)
 
         interaction.editReply({ embeds: [membersBought] });
 
