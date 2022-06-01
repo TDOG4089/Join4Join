@@ -1,5 +1,7 @@
 const Discord = require('discord.js')
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB({ filePath: '../json.sqlite' });
+
 const get = async (interaction, user) => {
     let data = {}
     let object_user_based = {

@@ -3,7 +3,6 @@ const { MessageEmbed } = require('discord.js');
 const { get } = require('../Schemas/sqlite.js');
 const config = require('../Database/config.json');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('info')
