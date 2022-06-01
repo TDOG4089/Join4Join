@@ -1,5 +1,4 @@
 const config = require('../Database/config.json');
-const db = require('quick.db');
 
 module.exports = {
     name: 'interactionCreate',
