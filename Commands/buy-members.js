@@ -19,7 +19,7 @@ module.exports = {
             .setRequired(true)),
     async execute(interaction, client) {
 
-        //await interaction.deferReply();
+        await interaction.deferReply();
 
         data = await get(interaction, interaction.user)
 
@@ -27,7 +27,7 @@ module.exports = {
         const description = interaction.options.getString('description');
 
         if (!interaction.member.permissions.has('ADMINISTRATOR'))
-            return interaction.reply({ content: 'You don\'t have permissions to use this command!' });
+            return interaction.editReply({ content: 'You don\'t have permissions to use this command!' });
 
         const minimumAmount = new MessageEmbed()
             .setDescription(`You need to spend/input at least **5** coins to buy members!\n(Maybe you do not have 5 coins)`)
@@ -35,11 +35,11 @@ module.exports = {
             .setTimestamp()
 
         if (amount < 5)
-            return interaction.reply({ embeds: [minimumAmount] });
+            return interaction.editReply({ embeds: [minimumAmount] });
         if (data.coins < 5)
-            return interaction.reply({ embeds: [minimumAmount] });
+            return interaction.editReply({ embeds: [minimumAmount] });
         if (amount > data.coins)
-            return interaction.reply({ embeds: [minimumAmount] });
+            return interaction.editReply({ embeds: [minimumAmount] });
 
         let link = data.code;
 
@@ -66,7 +66,7 @@ module.exports = {
             .setColor(config.color)
             .setDescription(`<@${interaction.user.id}>, you have bought **${amount}** members for your server!\nYou can now check the status of your order for **${interaction.guild.name}** by using the **/info** command!`)
 
-        interaction.reply({ embeds: [membersBought] });
+        interaction.editReply({ embeds: [membersBought] });
 
         client.channels.cache.get('978721902518493214').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just ordered **${amount}** members for the server **${interaction.guild.id}** (${interaction.guild.name})` });
     },
