@@ -26,7 +26,7 @@ module.exports = {
         const description = interaction.options.getString('description');
 
         if (!interaction.member.permissions.has('ADMINISTRATOR'))
-            return interaction.editReply({ content: 'You don\'t have permissions to use this command!', ephemeral: true });
+            return interaction.followUp({ content: 'You don\'t have permissions to use this command!', ephemeral: true });
 
         const minimumAmount = new MessageEmbed()
             .setDescription(`You need to spend/input at least **5** coins to buy members!\n(Maybe you do not have 5 coins)`)
@@ -34,11 +34,11 @@ module.exports = {
             .setTimestamp()
 
         if (amount < 5)
-            return interaction.editReply({ embeds: [minimumAmount], ephemeral: true });
+            return interaction.followUp({ embeds: [minimumAmount], ephemeral: true });
         if (data.coins < 5)
-            return interaction.editReply({ embeds: [minimumAmount], ephemeral: true });
+            return interaction.followUp({ embeds: [minimumAmount], ephemeral: true });
         if (amount > data.coins)
-            return interaction.editReply({ embeds: [minimumAmount], ephemeral: true });
+            return interaction.followUp({ embeds: [minimumAmount], ephemeral: true });
 
         let link = data.code;
 
