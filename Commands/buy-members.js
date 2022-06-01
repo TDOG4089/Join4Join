@@ -41,14 +41,14 @@ module.exports = {
         if (amount > data.coins)
             return interaction.reply({ embeds: [minimumAmount] });
 
-        /* let link = data.code;
+        let link = data.code;
 
         if (link == 0) {
             link = await interaction.channel.createInvite({ maxAge: 604800 });
             link = link.code;
         }
 
-        await client.fetchInvite('https://discord.gg/' + link).catch(async x => {
+        /* await client.fetchInvite('https://discord.gg/' + link).catch(async x => {
             link = await interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
             console.log(link);
