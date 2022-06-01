@@ -4,7 +4,6 @@ const { get } = require('../Schemas/sqlite.js');
 const db = require('quick.db');
 const config = require('../Database/config.json');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('buy-members')
@@ -56,10 +55,10 @@ module.exports = {
 
         //await new Promise(resolve => setTimeout(resolve, 100));
 
-        db.set(`code_${interaction.guild.id}`, link);
-        db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`);
-        db.add(`orders_${interaction.guild.id}`, amount);
-        db.subtract(`coins_${interaction.user.id}`, amount);
+        db.set(`code_${interaction.guild.id}`, link)
+        db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`)
+        db.add(`orders_${interaction.guild.id}`, amount)
+        db.subtract(`coins_${interaction.user.id}`, amount)
 
         const membersBought = new MessageEmbed()
             .setTitle(`Order successfully completed`)
