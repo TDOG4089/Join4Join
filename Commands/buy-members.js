@@ -43,9 +43,11 @@ module.exports = {
 
         let link = data.code;
 
+        console.log('beep-3')
         if (link == 0) {
+            console.log('beep-2')
             link = await interaction.channel.createInvite({ maxAge: 604800 });
-
+            console.log('beep-1')
             link = link.code;
         }
 
