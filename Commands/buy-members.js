@@ -42,22 +42,14 @@ module.exports = {
             return interaction.editReply({ embeds: [minimumAmount], ephemeral: true });
 
         let link = data.code;
-
-        console.log('beep-3')
         if (link == 0) {
-            console.log('beep-2')
             link = await interaction.channel.createInvite({ maxAge: 604800 });
-            console.log('beep-1')
             link = link.code;
         }
 
-        console.log('beep')
         await client.fetchInvite('https://discord.gg/' + link).catch(async x => {
-            console.log('beep1')
             link = await interaction.channel.createInvite({ maxAge: 0 });
-            console.log('beep2')
             link = link.code;
-            console.log('beep3')
             console.log(link);
         });
 
