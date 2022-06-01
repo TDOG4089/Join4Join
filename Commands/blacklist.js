@@ -24,7 +24,7 @@ module.exports = {
         blacklist.findOne({ id: user.id }, async (err, data) => {
             if (err) throw err;
             if (data) {
-                interaction.editReply({ content: `${user} has already been blacklisted!`, ephemeral: true });
+                return interaction.editReply({ content: `${user} has already been blacklisted!`, ephemeral: true });
             } else {
                 data = new blacklist({ id: user.id })
             }
