@@ -1,6 +1,5 @@
 const { get } = require('../Schemas/sqlite.js');
-const { QuickDB } = require('quick.db');
-const db = new QuickDB({ filePath: '../json.sqlite' });
+const db = require('quick.db');
 
 module.exports = {
     name: 'guildMemberAdd',

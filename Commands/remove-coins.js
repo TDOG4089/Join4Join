@@ -1,8 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const { get } = require('../Schemas/sqlite.js');
-const { QuickDB } = require('quick.db');
-const db = new QuickDB({ filePath: '../json.sqlite' });
+const db = require('quick.db');
 const config = require('../Database/config.json');
 
 module.exports = {
