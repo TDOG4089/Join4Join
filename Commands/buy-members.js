@@ -44,16 +44,16 @@ module.exports = {
         let link = data.code;
 
         if (link == 0) {
-            link = await interaction.channel.createInvite({ maxAge: 604800 });
+            link = await interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
         }
 
-        //await interaction.client.fetchInvite('https://discord.gg/' + link).catch(err => {
-        //    console.log(err);
+        await interaction.client.fetchInvite('https://discord.gg/' + link).catch(err => {
+            console.log(err);
             link = interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
             console.log(link);
-        //});
+        });
 
         await new Promise(resolve => setTimeout(resolve, 100));
 
