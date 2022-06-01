@@ -28,4 +28,6 @@ for (const file of eventFiles) {
   }
 }
 
+require('./Schemas/blacklist.js');
+
 client.login(config.token)
