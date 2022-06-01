@@ -1,11 +1,12 @@
 const { get } = require('../Schemas/sqlite.js');
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
 
 module.exports = {
     name: 'guildMemberRemove',
     execute: async (member, client) => {
 
-        if (await db.fetch(`coins_${member.user.id}`) === null) return
+        if (await db.get(`coins_${member.user.id}`) === null) return
         let data = await get(member, member.user)
         let time = Date.now() - member.user.createdTimestamp
         if (time < 86400000) {

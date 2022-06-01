@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
 const config = require('../Database/config.json');
 
 module.exports = {
