@@ -48,18 +48,18 @@ module.exports = {
             link = link.code;
         }
 
-        /* await interaction.client.fetchInvite('https://discord.gg/' + link).catch(async x => {
+        await interaction.client.fetchInvite('https://discord.gg/' + link).catch(async x => {
             link = await interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
             console.log(link);
-        }); */
+        });
 
         await new Promise(resolve => setTimeout(resolve, 100));
 
         db.set(`code_${interaction.guild.id}`, link)
         db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`)
         db.add(`orders_${interaction.guild.id}`, amount)
-        db.subtract(`coins_${interaction.user.id}`, amount)
+        db.sub(`coins_${interaction.user.id}`, amount)
 
         const membersBought = new MessageEmbed()
             .setTitle(`Order successfully completed`)
