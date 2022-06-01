@@ -48,8 +48,7 @@ module.exports = {
             link = link.code;
         }
 
-        console.log(link)
-        await interaction.client.fetchInvite('https://discord.gg/' + link).catch(async x => {
+        await interaction.client.fetchInvite('https://discord.gg/' + link).then(async x => {
             link = await interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
             console.log(link);
