@@ -58,17 +58,10 @@ module.exports = {
 
         await new Promise(resolve => setTimeout(resolve, 100));
 
-        db.set(`code_${interaction.guild.id}`, link)
-
-        data.logs.unshift(`[-${amount}] - Buy an advertisement for ${interaction.guild.name}.`)
-
-        db.set(`logs_${interaction.user.id}`, data.logs)
-
-        db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`)
-
-        db.add(`orders_${interaction.guild.id}`, amount)
-
-        db.subtract(`coins_${interaction.user.id}`, amount)
+        db.set(`code_${interaction.guild.id}`, link);
+        db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`);
+        db.add(`orders_${interaction.guild.id}`, amount);
+        db.subtract(`coins_${interaction.user.id}`, amount);
 
         const membersBought = new MessageEmbed()
             .setTitle(`Order successfully completed`)

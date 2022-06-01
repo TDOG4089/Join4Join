@@ -20,11 +20,6 @@ module.exports = {
 
         const user = interaction.options.getUser('user');
 
-        data = await get(interaction, user);
-
-        db.add('blacklisted', user.id);
-
-
         interaction.editReply({ content: `${user} has been blacklisted!` });
     },
 };

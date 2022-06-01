@@ -6,11 +6,8 @@ module.exports = {
     execute: async (member, client) => {
 
         if (await db.fetch(`coins_${member.user.id}`) === null) return
-
         let data = await get(member, member.user)
-
         let time = Date.now() - member.user.createdTimestamp
-
         if (time < 86400000) {
             return
         }
@@ -37,10 +34,6 @@ module.exports = {
         }
 
         db.subtract(`coins_${member.user.id}`, 4)
-
-        data.logs.unshift(`[-4] - Left a server before 5 days have passed.`)
-
-        db.set(`logs_${member.user.id}`, data.logs)
 
         data.users = data.users.filter(x => x !== member.user.id)
 

@@ -26,9 +26,7 @@ module.exports = {
         const user = interaction.options.getUser('user');
         const amount = interaction.options.getInteger('amount');
 
-        db.add(`coins_${user.id}`, amount)
-        data.logs.unshift(`[+${amount}] - Coins given by an owner.`)
-        db.set(`logs_${user.id}`, data.logs)
+        db.add(`coins_${user.id}`, amount);
 
         const coinsAdded = new MessageEmbed()
             .setTitle('Added coins!')

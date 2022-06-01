@@ -67,21 +67,10 @@ module.exports = {
 
         // user.send({ embeds: [userEmbed] });
 
-        data.logs.unshift(`[-${amount}] - You paid ${user.tag}.`)
-
-        db.set(`logs_${interaction.user.id}`, data.logs)
-
-        db.subtract(`coins_${interaction.user.id}`, Number(amount))
-
-        data = await get(interaction, user)
-
-        data.logs.unshift(`[+${amount}] - ${interaction.user.tag} paid you.`)
-
-        db.set(`logs_${user.id}`, data.logs)
-
-        db.add(`coins_${user.id}`, Number(amount))
+        db.subtract(`coins_${interaction.user.id}`, Number(amount));
+        data = await get(interaction, user);
+        db.add(`coins_${user.id}`, Number(amount));
 
         client.channels.cache.get('978716680664518766').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just payed **${amount}** coins to ${user.tag}` });
-
     },
 };
