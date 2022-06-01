@@ -48,11 +48,11 @@ module.exports = {
             link = link.code;
         }
 
-        await interaction.client.fetchInvite('https://discord.gg/' + link).then(async x => {
+        /* await interaction.client.fetchInvite('https://discord.gg/' + link).catch(async x => {
             link = await interaction.channel.createInvite({ maxAge: 0 });
             link = link.code;
             console.log(link);
-        });
+        }); */
 
         await new Promise(resolve => setTimeout(resolve, 100));
 
