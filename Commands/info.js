@@ -38,7 +38,7 @@ module.exports = {
             .setTitle(`${interaction.guild.name}\'s info!`)
             .setDescription(`Members ordered: **${data.orders}**\nTotal members: **${data.uses}/${data.orders}**`)
 
-        await client.fetchInvite('https://discord.gg/' + data.code).catch(e => interaction.followUp({ content: 'The invite link for this server has expired! Please place a new order or no one will be able to join!', ephemeral: true }));
+        await client.fetchInvite('https://discord.gg/' + data.code).catch(e => interaction.followUp({ content: 'The invite link for this server has expired! Please place a new order or no one will be able to join!' }));
 
         interaction.editReply({ embeds: [info], ephemeral: true });
     },

@@ -34,7 +34,7 @@ module.exports = {
             return
         }
 
-        db.subtract(`coins_${member.user.id}`, 4)
+        db.sub(`coins_${member.user.id}`, 4)
 
         data.users = data.users.filter(x => x !== member.user.id)
 

@@ -67,7 +67,7 @@ module.exports = {
 
         // user.send({ embeds: [userEmbed] });
 
-        db.subtract(`coins_${interaction.user.id}`, Number(amount));
+        db.sub(`coins_${interaction.user.id}`, Number(amount));
         data = await get(interaction, user);
         db.add(`coins_${user.id}`, Number(amount));
 

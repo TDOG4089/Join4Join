@@ -27,7 +27,7 @@ module.exports = {
         const user = interaction.options.getUser('user');
         const amount = interaction.options.getInteger('amount');
 
-        db.subtract(`coins_${user.id}`, amount);
+        db.sub(`coins_${user.id}`, amount);
 
         const coinsAdded = new MessageEmbed()
             .setTitle('Subtracted coins!')
