@@ -47,11 +47,12 @@ module.exports = {
                     const invites = new MessageEmbed()
                         .setTitle('Invite link!')
                         .setDescription(`Join this server for a coin!\n\n**${guild}** - ${description}`)
-                    interaction.editReply({ embeds: [invites] })
+                    interaction.editReply({ embeds: [invites] }).catch((err) => {
+                        console.log(err)
+                    })
                     length++
                 }
             }
         }
-        console.log('what')
     },
 };
