@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
 const config = require('../Database/config.json');
 
 module.exports = {
