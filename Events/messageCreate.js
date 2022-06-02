@@ -15,7 +15,7 @@ module.exports = {
 
         orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(interaction.user.id) === undefined);
 
-        for (let i = 0; i < orders.length; i++) {
+       // for (let i = 0; i < orders.length; i++) {
 
             let handler = true
 
@@ -25,7 +25,7 @@ module.exports = {
 
                 let id = orders[i].ID.split("_")[1]
 
-                let guild = client.guilds.cache.get(orders[i].ID.split("_")[1]).name
+                let guild = client.guilds.cache.get(orders[1].ID.split("_")[1]).name
 
                 let code = await db.get(`code_${id}`)
 
@@ -47,7 +47,7 @@ module.exports = {
                     message.reply({ embeds: [invites] })
                     length++
                 }
-            }
+   //         }
         };
     }
     },
