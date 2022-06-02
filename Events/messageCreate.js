@@ -2,7 +2,7 @@ const config = require('../Database/config.json');
 
 module.exports = {
     name: 'messageCreate',
-    execute(message, client) {
+    execute: async(message, client) => {
 
 
         if (message.content === '+farm') {
