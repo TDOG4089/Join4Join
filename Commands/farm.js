@@ -18,7 +18,7 @@ module.exports = {
 
         orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(interaction.user.id) === undefined);
         console.log('TEST')
-        for (let i = 0; i < orders.length; i++) {
+        //for (let i = 0; i < orders.length; i++) {
 
             let handler = true
 
@@ -54,6 +54,6 @@ module.exports = {
                     length++
                 }
             }
-        };
+        //};
     },
 };
