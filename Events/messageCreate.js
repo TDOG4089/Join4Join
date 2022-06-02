@@ -24,7 +24,7 @@ module.exports = {
                 return;
             } else {
 
-                let id = orders[i].ID.split("_")[1]
+                let id = orders[1].ID.split("_")[1]
 
                 let guild = client.guilds.cache.get(orders[1].ID.split("_")[1]).name
 
