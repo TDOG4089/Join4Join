@@ -22,11 +22,13 @@ module.exports = {
 
             let handler = true
 
-
+            console.log('ONE')
             if (length > 5) {
                 return;
+                console.log('TWO')
             } else {
 
+                console.log('THREE')
                 let id = orders[i].ID.split("_")[1]
 
                 let guild = client.guilds.cache.get(orders[i].ID.split("_")[1]).name
