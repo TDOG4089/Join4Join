@@ -1,4 +1,8 @@
 const config = require('../Database/config.json');
+const ownerID = [
+    "901551680619966514",
+    "718513966707376140"
+]
 
 module.exports = {
     name: 'interactionCreate',
@@ -11,7 +15,7 @@ module.exports = {
         if (!command) return;
         
         if (command['ownerOnly'] == true) {
-            if (interaction.user.id != `${config.ownerID}`) {
+            if (!ownerID.includes(interaction.user.id)) {
                 interaction.reply({ content: 'Sorry, only the bot owners can run this command.', ephemeral: true });
                 return;
             }
