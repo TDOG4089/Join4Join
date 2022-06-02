@@ -12,6 +12,8 @@ module.exports = {
 
         await interaction.deferReply({ ephemeral: true });
 
+        interaction.editReply({ content: 'Servers are below!' });
+        
         let orders = await db.all(`orders_`, { sort: ".data" });
 
         let length = 5
