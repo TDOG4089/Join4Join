@@ -18,7 +18,7 @@ module.exports = {
 
         orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(interaction.user.id) === undefined)
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setTitle('Farm!')
 
@@ -32,7 +32,7 @@ module.exports = {
 
                 let guild = client.guilds.cache.get(orders[i].ID.split("_")[1]).name
 
-                let code = await db.fetch(`code_${id}`)
+                let code = await db.get(`code_${id}`)
 
 
                 await client.fetchInvite("https://discord.gg/" + code)
@@ -47,7 +47,7 @@ module.exports = {
                 await new Promise(resolve => setTimeout(resolve, 1))
 
                 if (handler) {
-                    let description = await db.fetch(`description_${id}`)
+                    let description = await db.get(`description_${id}`)
 
                     embed.setDescription(`${guild} - ${description}`,)
                     length++
