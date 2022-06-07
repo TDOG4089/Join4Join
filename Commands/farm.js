@@ -26,7 +26,7 @@ module.exports = {
 
             let handler = true
 
-            if (length >= 2) { return; } else {
+            if (length >= 1) { return; } else {
 
                 let id = orders[i].ID.split("_")[1]
 
@@ -49,12 +49,12 @@ module.exports = {
                 if (handler) {
                     let description = await db.get(`description_${id}`)
 
-                    embed.setDescription(`${guild} - ${description}`,)
+                    embed.setDescription(`${guild} - ${description}`)
                     length++
                 }
             }
         }
 
-        interaction.editReply({ embeds: [embed] });
+        //interaction.editReply({ embeds: [embed] });
     },
 };
