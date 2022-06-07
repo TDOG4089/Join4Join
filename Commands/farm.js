@@ -26,7 +26,7 @@ module.exports = {
 
             let handler = true
 
-            if (length >= 1) { } else {
+            if (length >= 1) { return; } else {
 
                 let id = orders[i].ID.split("_")[1]
 
