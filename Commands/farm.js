@@ -21,6 +21,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setTitle('Farm!')
+            .setDescription(invite)
 
         for (let i = 0; i < orders.length; i++) {
 
@@ -38,7 +39,7 @@ module.exports = {
                 console.log(guild) //temp
                 console.log(code) //temp
 
-                await client.fetchInvite("https://discord.gg/" + code)
+                invite = await client.fetchInvite("https://discord.gg/" + code)
                     .then(link => {
                         console.log(link.code)
                         if (link.code === null) handler = false
@@ -57,7 +58,6 @@ module.exports = {
                 }
             }
         }
-          //temp block
-        //interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [embed] });
     },
 };
