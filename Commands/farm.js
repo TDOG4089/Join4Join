@@ -34,6 +34,9 @@ module.exports = {
 
                 let code = await db.get(`code_${id}`)
 
+                console.log(id) //temp
+                console.log(guild) //temp
+                console.log(code) //temp
 
                 await client.fetchInvite("https://discord.gg/" + code)
                     .then(link => {
@@ -54,7 +57,7 @@ module.exports = {
                 }
             }
         }
-
+          //temp block
         //interaction.editReply({ embeds: [embed] });
     },
 };
