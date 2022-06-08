@@ -46,11 +46,14 @@ module.exports = {
                     })
                     .catch(error => {
                         handler = false
+                        console.log("No invite.")
+                        console.log(link.code)
                     })
-
+                console.log("ping1")
                 await new Promise(resolve => setTimeout(resolve, 1))
 
                 if (handler) {
+                    console.log("ping2")
                     let description = await db.get(`description_${id}`)
                     embed.setDescription(`[${guild}](${description})`)
                     //embed.setDescription(`${guild} - ${description}`)
