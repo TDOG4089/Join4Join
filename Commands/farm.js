@@ -42,7 +42,7 @@ module.exports = {
                 await client.fetchInvite("https://discord.gg/" + code)
                     .then(link => {
                         console.log(link.code)
-                        if (link.code === null) handler = true
+                        if (link.code === null) handler = false
                     })
                     .catch(error => {
                         handler = false
