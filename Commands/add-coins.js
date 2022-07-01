@@ -45,6 +45,6 @@ module.exports = {
             interaction.editReply({ content: 'The user was **not** notified!' });
         });
 
-        client.channels.cache.get('990822425887408148').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just added **${amount}** coins to ${user.tag}` });
+        client.channels.cache.get('991109520103325767').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just added **${amount}** coins to ${user.tag}` });
     },
 };
