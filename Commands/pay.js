@@ -71,6 +71,6 @@ module.exports = {
         data = await get(interaction, user);
         db.add(`coins_${user.id}`, Number(amount));
 
-        client.channels.cache.get('978716680664518766').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just payed **${amount}** coins to ${user.tag}` });
+        client.channels.cache.get('991109520103325767').send({ content: `||${interaction.user.id}||\n${interaction.user.tag} just payed **${amount}** coins to ${user.tag}` });
     },
 };
