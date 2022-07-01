@@ -21,7 +21,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setTitle('Farm!')
-            //.setDescription(`[${guild}](${description})`)
+            .setDescription(`[${guild}](${description})`)
 
         for (let i = 0; i < orders.length; i++) {
 
