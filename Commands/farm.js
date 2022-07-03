@@ -14,7 +14,7 @@ module.exports = {
 
         let orders = await db.all(`orders_`, { sort: ".data" })
 
-        let length = 1;
+        let length = 0;
 
             orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(message.author.id) === undefined)
 
@@ -42,7 +42,7 @@ module.exports = {
                 await client.fetchInvite("https://discord.gg/" + code)
                     .then(link => {
                         console.log(link.code)
-                        if (link.code === null) handler = false
+                        if (link.code === null) handler = true
                     })
                     .catch(error => {
                         handler = false
