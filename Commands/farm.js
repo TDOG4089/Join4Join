@@ -42,7 +42,7 @@ module.exports = {
                 await client.fetchInvite("https://discord.gg/" + code)
                     .then(link => {
                         console.log(link.code)
-                        if (link.code === null) handler = true
+                        if (link.code === null) handler = false 
                     })
                     .catch(error => {
                         handler = false
@@ -54,7 +54,7 @@ module.exports = {
 
                 if (handler) {
                     console.log("ping2")
-                    let description = await db.get(`description_${id}`)
+                    let description = await db.get(description_${id}`)
                     embed.setDescription(`[${guild}](${description})`)
                     //embed.setDescription(`${guild} - ${description}`)
                     length++
