@@ -56,7 +56,7 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 100));
 
         db.set(`code_${interaction.guild.id}`, link)
-        db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\nhttps://discord.gg/${link}`)
+        db.set(`description_${interaction.guild.id}`, `${description === undefined ? "" : description}\https://discord.gg/${link}`)
         db.add(`orders_${interaction.guild.id}`, amount)
         db.sub(`coins_${interaction.user.id}`, amount)
 
