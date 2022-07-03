@@ -16,7 +16,7 @@ module.exports = {
 
         let length = 0;
 
-        orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(interaction.user.id) === undefined)
+            orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(message.author.id) === undefined)
 
         const embed = new MessageEmbed()
             .setColor("RANDOM")
