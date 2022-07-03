@@ -14,7 +14,7 @@ module.exports = {
 
         let orders = await db.all(`orders_`, { sort: ".data" })
 
-        let length = 0;
+        let length = 1;
 
             orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(message.author.id) === undefined)
 
