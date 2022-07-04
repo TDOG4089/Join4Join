@@ -1,66 +1,58 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
-const { QuickDB } = require('quick.db');
-const db = new QuickDB();
-const config = require('../Database/config.json');
-
-module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('farm')
-        .setDescription('Join servers for coins!'),
-    async execute(interaction, client) {
-
-        await interaction.deferReply();
-
-        let orders = await db.all(`orders_`, { sort: ".data" })
-
-        let length = 0;
-
-            orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(message.author.id) === undefined)
-
-        const embed = new MessageEmbed()
-            .setColor("RANDOM")
-            .setTitle('Farm!')
-            //.setDescription(`[${guild}](${description})`);
-
-        for (let i = 0; i < orders.length; i++) {
-
-            let handler = true
-
-            if (length >= 1) { return; } else {
-
-                let id = orders[i].ID.split("_")[1]
-
-                let guild = client.guilds.cache.get(orders[i].ID.split("_")[1]).name
-
-                let code = await db.get(`code_${id}`)
-
-                console.log(id) //temp
-                console.log(guild) //temp
-                console.log(code) //temp
-
-                await client.fetchInvite("https://discord.gg/" + code)
-                    .then(link => {
-                        console.log(link.code)
-                        if (link.code === null) handler = false 
-                    })
-                    .catch(error => {
-                        handler = false
-                        console.log("No invite.")
-                        console.log(link.code)
-                    })
-                console.log("ping1")
-                await new Promise(resolve => setTimeout(resolve, 1))
-
-                if (handler) {
-                    console.log("ping2")
-                    let description = await db.get(description_${id}`)
-                    embed.setDescription(`[${guild}](${description})`)
-                    //embed.setDescription(`${guild} - ${description}`)
-                    length++
-                }
-            }
-        }
-        interaction.editReply({ embeds: [embed] });
-    },
-};
+const Discord = require('discord.js'); 
+ const config = require('../config.json'); 
+ module.exports = { 
+   name: "farm", 
+   description: "servers", 
+   aliases: ["search"], 
+   execute: async(client, message, args, data, db) => { 
+     
+     let orders = await db.startsWith(`orders_`, { sort: ".data" }) 
+      
+     let length = 2 
+      
+     orders = orders.filter(x => x.data > 0 && client.guilds.cache.get(x.ID.split("_")[1]) && client.guilds.cache.get(x.ID.split("_")[1]).members.cache.get(message.author.id) === undefined) 
+      
+     const embed = new Discord.MessageEmbed() 
+     .setColor("#2f3136") 
+     .setAuthor('Joins+ | Farming', client.user.displayAvatarURL()) 
+     .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true })) 
+     .setDescription(`Join these servers to earn 1 coin per server\n\n**__Servers to join to receive coins__**`) 
+     for (let i = 0;i < orders.length;i++) { 
+       
+       let handler = true 
+        
+      if (length > 5) {} else { 
+  
+        let id = orders[i].ID.split("_")[1] 
+       
+        let guild = client.guilds.cache.get(orders[i].ID.split("_")[1]).name 
+       
+         let code = await db.fetch(`code_${id}`) 
+       
+         
+         await client.fetchInvite("https://discord.gg/" + code) 
+        .then(link => {  
+         console.log(link.code) 
+          if (link.code === null) handler = false  
+        }) 
+        .catch(error => { 
+          handler = false  
+        })  
+         
+        await new Promise(resolve => setTimeout(resolve, 1)) 
+         
+        if (handler) { 
+          let description = await db.fetch(`description_${id}`) 
+          embed.addField(`**${guild}**`, description, false) 
+           length++ 
+      }  
+    }  
+  }  
+  
+  embed.addField(`**__Joins+ | Support__**`, `https://github.com/ThisDudeBoy/Join4Join`, false) 
+      
+     embed.addField(`__There is no link available ?__`, `Join our support server for more coins ! [Joins+ | Github](https://github.com/ThisDudeBoy/Join4Join)`, false) 
+     .setFooter(config.EmbedFooter) 
+     message.channel.send(embed)   
+   }  
+ } 
