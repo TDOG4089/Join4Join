@@ -54,7 +54,7 @@
   
                  if (handler) { 
                      console.log("ping2") 
-                     let description = await db.get(description_${id}`) 
+                     let description = await db.get('description_${id}`) 
                      embed.setDescription(`[${guild}](${description})`) 
                      //embed.setDescription(`${guild} - ${description}`) 
                      length++ 
