@@ -20,7 +20,7 @@
   
          const embed = new MessageEmbed() 
              .setColor("RANDOM") 
-             .setTitle('Farm!') 
+             .setTitle('Farm!!') 
              .setDescription(`[${guild}](${description})`); 
   
          for (let i = 0; i < orders.length; i++) { 
